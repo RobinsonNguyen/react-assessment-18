@@ -20,10 +20,6 @@ const Comments = () => {
     getComments();
   }, []);
 
-  const handleClick = (e) => {
-    console.log(e.target);
-  };
-
   return (
     <div>
       {comments.map((element) => {
@@ -34,7 +30,6 @@ const Comments = () => {
             name={element.name}
             email={element.email}
             body={element.body}
-            onClick={handleClick}
           />
         );
       })}
@@ -47,13 +42,15 @@ const Comment = (props) => {
     console.log(e.target.id);
   };
   return (
-    <div>
+    <>
       <br></br>
-      <h2>{props.email}</h2>
-      <div id={props.id} onClick={handleClick}>
-        {props.body}
+      <div>
+        <h2>{props.email}</h2>
+        <div id={props.id} onClick={handleClick}>
+          {props.body}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 export default Comments;
